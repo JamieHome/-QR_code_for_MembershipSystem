@@ -1,0 +1,142 @@
+﻿@*@{
+    Layout = "../../views/shared/_layout.cshtml";
+}*@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable" />  
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />  
+<meta content="telephone=no" name="format-detection" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /> 
+<meta http-equiv="Pragma" content="no-cache" /> 
+<meta http-equiv="Expires" content="0" /> 
+<title>顺品郎</title>
+<link rel="shortcut icon" type="image/x-icon" href="@(WorkContext.ImageDir)/favicon.ico">
+<link type="text/css" rel="stylesheet" href="@(WorkContext.CSSDir)/common.css?v=1.0.1"/>
+<link type="text/css" rel="stylesheet" href="@(WorkContext.CSSDir)/swiper.css"/>
+<script src="@(WorkContext.ScriptDir)/defineRem.js"></script>
+<script src="@(WorkContext.ScriptDir)/jquery-1.8.3.min.js"></script> 
+<script src="@(WorkContext.ScriptDir)/tooltip.js"></script>
+<script src="@(WorkContext.ScriptDir)/jquery.cookie.js"></script>	
+<script src="@(WorkContext.ScriptDir)/index.js"></script>
+<script src="@(WorkContext.ScriptDir)/swiper.jquery.min.js"></script>	
+</head>
+<body>
+<!-- 引导页 -->
+<!-- <div class="guide">
+		<a class="ignore-btn" href="javascript:;">
+			点击跳过
+		</a>
+		<p>四川郎酒集团责任有限公司</p>
+	</div> -->
+<div id="loading"><p><img src="@(WorkContext.ImageDir)/loading.gif">正在拼命加载中...</p></div>
+<div class="hide">
+	<img src="@(WorkContext.ImageDir)/guideBg2.jpg" alt="" class="guideImg">
+</div>
+<!-- 引导页 -->
+<!-- 主页面 -->
+<div id="container" class="index-bg cleax-fix">
+<!-- 搜索栏 -->
+	<div class="index-top clear-fix" style="height: 52px;">
+		<img src="@(WorkContext.ImageDir)/logo.png?v=1.0.1" class="logo" alt="" style="height: 1.8rem;left:calc(50% - 87px);width: auto;">
+		<!-- <div class="search-wrap">
+			<img src="@(WorkContext.ImageDir)/searchIcon.jpg?v=1.0.1" alt="">
+			<input type="text" class="text" placeholder="请输入搜索内容">
+			<span class="clearText"></span>
+			<input type="button" value="搜索" class="btn" id="search-btn">
+		</div> -->
+	</div>
+<!-- 搜索栏 -->
+<!-- 轮播图 -->
+	<div class="banner swiper-container">
+        <div class="swiper-wrapper">
+			 <div class="swiper-slide"><img src="@(WorkContext.ImageDir)/bbanner.jpg?v=1.0.1" class="banner2"></div>
+         	 <div class="swiper-slide"><img src="@(WorkContext.ImageDir)/bbanner.jpg?v=1.0.1"></div>
+        </div>
+        <div class="swiper-pagination">
+        </div>
+    </div>
+<!-- 轮播图 -->
+<!-- 基本信息 -->
+<div class="index-info clear-fix">
+	<img src="@(WorkContext.ImageDir)/pro.png?v=1.0.1" alt="">
+    <img src="@(WorkContext.ImageDir)/ri.png?v=1.0.1" alt="" style="height:3rem;padding-top: 1rem;padding-left: 0.5rem;">
+    <ul class="list clear-fix" style="color: #29317f;font-family:'黑体';margin-left:0.5rem;width: 9.9rem;">
+        <li><span>品名：</span><span>顺品郎280(兼香蓝)</span></li>
+        <li><span>酒精度：</span><span>45%vol</span></li>
+        <li><span>原料：</span><span>高粱、水、小麦、玉米、糯米、大米</span></li> 
+        <li><span>地址：</span><span>四川省古蔺县二郎镇</span></li>
+    </ul>
+</div>
+
+<!-- 基本信息 -->
+<!-- 链接 -->
+<div class="links clear-fix">
+	<a href="http://xiaolangjiu.cdzmd.com/activitylist.html?TypeId=1" class="activity">品牌活动</a>
+	<a href="https://shop42856492.youzan.com/v2/feature/5AtJ7Fy4G1" class="buy">购买链接</a>
+	<a href="http://www.langjiu.cn/" class="website">郎酒官网</a>
+</div>
+<!-- 链接 -->
+</div>
+    <!-- 主页面 -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=C93b5178d7a8ebdb830b9b557abce78b"></script>
+    <script>
+        /***/
+        var geolocation = new BMap.Geolocation();
+        function getLocation() {
+            if (geolocation) {
+                geolocation.getCurrentPosition(function (r) {
+                    if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+
+                        showMap(r);
+                    }
+                    else {
+                        console('failed' + this.getStatus());
+                    }
+                });
+            }
+            else {
+                console("您的浏览器不支持使用HTML 5来获取地理位置服务");
+            }
+        }
+
+        function showMap(value) {
+
+
+            //获得经度纬度
+            var x = value.point.lat;
+            var y = value.point.lng;
+            //配置Baidu Geocoding API
+            var url = "http://api.map.baidu.com/geocoder/v2/?ak=C93b5178d7a8ebdb830b9b557abce78b" +
+                "&callback=renderReverse" +
+                "&location=" + x + "," + y +
+                "&output=json" +
+                "&pois=0";
+
+            $.ajax({
+                type: "GET",
+                dataType: "jsonp",
+                url: url,
+                success: function (data) {
+
+                    if (data == null || typeof data == "undefined") {
+                        return;
+                    }
+                    if (data.status != "0") {
+                        return;
+                    }
+                    var adr = data.result.addressComponent;
+                    province = adr.province;
+                    city = adr.city;
+                    adress = data.result.formatted_address;
+                },
+                error: function (xmlHttpRequest, textStatus, errorThrown) { }
+            });
+        }
+
+        getLocation();
+    </script>
+</body>
+</html>

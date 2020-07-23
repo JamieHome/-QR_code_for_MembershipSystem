@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="@WorkContext.CSSDir/inspect.css">
+	<title>物流</title>
+</head>
+<body>
+	<div class="container" id="query">
+		<header>
+			<img src="@WorkContext.ImageDir/query-top.png" alt="">
+		</header>
+
+
+        @{ var list = ViewBag.lstResult ;
+                }
+                @if (ViewBag.lstResult != null && list.Count > 0)
+                {
+
+                    foreach (var m in list)
+                    {
+                       <div class="basic">
+				<p class="query-wz">单据号:  @m.BILLNUM</p>
+                <p>单据类型：@m.BACKUP3</p>
+				<p>出库库房(经销商)：@m.OUTSTORENAME </p>
+				<p>时间： @m.OPRTIME.ToString("yyyy-MM-dd HH:mm:ss")</p>
+				<p>收货库房(经销商)：@m.STORENAME</p>
+                <p>箱码：@m.CODEDATA </p>
+			</div>
+                    }
+                }
+                else
+                { 
+                  <div class="basic">
+				<p class="query-wz">单据号:</p>
+				<p>出库库房： </p>
+				<p>时间： </p>
+				<p>收货库房(经销商)：</p>
+			</div>
+        }
+@*
+			<div class="basic">
+				<p class="query-wz">单据号:</p>
+				<p>出库库房： </p>
+				<p>时间： </p>
+				<p>收货库房：</p>
+			</div>*@
+
+	</div>
+</body>
+</html>

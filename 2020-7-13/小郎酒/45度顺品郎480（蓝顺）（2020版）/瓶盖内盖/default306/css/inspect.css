@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    height: 100%;
+    font-family: "Microsoft YaHei", "宋体";
+    color: #333;
+    font-size: 0.7rem;
+    position: relative;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    display: block;
+}
+a:actived {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+em,i,s{font-style:normal;text-decoration:none}
+img {
+    border: none;
+    display: block;
+}
+select {
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: "Microsoft YaHei", "宋体";
+}
+select option {
+    height: 1rem;
+    line-height: 1rem;
+}
+input {
+    outline: none;
+    font-size: 0.6rem;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-appearance: none;
+    box-sizing: border-box;
+}
+input.submit {
+    color: #fff;
+    background: #164d97;
+    border-radius: 0.05rem;
+    border-bottom: 0.06rem solid #083e86;
+    padding: 0.14rem 0.4rem;
+    font-size: 0.18rem;
+}
+textarea {
+    font-family: "Microsoft YaHei", "宋体";
+    -webkit-appearance: none;
+    border-radius: 0.05rem;
+    font-size: 0.6rem;
+    outline: none;
+    padding: 0.25rem;
+}
+input[type="button"],
+input[type="submit"] {
+    font-family: "Microsoft YaHei";
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+a {
+    color: #333;
+}
+p {
+    line-height: 180%;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+div {
+    word-break: break-all;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.ellisis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.blank {
+    height: 0.5rem;
+}
+.aC {
+    text-align: center;
+}
+.link {
+    text-decoration: underline;
+}
+.gray {
+    color: #999;
+}
+.radius {
+    border-radius: 0.15rem;
+}
+.clear-fix:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    clear: both;
+}
+::-webkit-input-placeholder {
+    font-family: "Microsoft YaHei", "宋体";
+    font-size: 0.6rem;
+    color: #bbb;
+}
+:-moz-placeholder {
+    font-family: "Microsoft YaHei", "宋体" !important;
+    font-size: 0.6rem;
+    color: #bbb;
+}
+::-moz-placeholder {
+    font-family: "Microsoft YaHei", "宋体" !important;
+    font-size: 0.6rem;
+    color: #bbb;
+}
+/* for the future */
+:-ms-input-placeholder {
+    font-family: "Microsoft YaHei", "宋体" !important;
+    font-size: 0.6rem;
+    color: #bbb;
+}
+.hide {
+    display: none;
+}
+.errorTooltip {
+    font-size: 0.6rem;
+    position: absolute;
+    z-index: 999;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.8);
+    width: 80%;
+    left: 10%;
+    box-sizing: border-box;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    transition: transform 0.5s;
+    -webkit-transition: -webkit-transform 0.5s;
+    transform-origin: bottom;
+    -webkit-transform-origin: bottom;
+}
+.errorTooltipShow {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+}
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-size: 16px;
+}
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-size: 16px;
+}
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-size: 16px;
+}
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-size: 16px;
+}
+
+/*header*/
+.container {
+    min-height: 100%;
+}
+.container header {
+    padding-top: 90px;
+}
+.container header img {
+	width:46%;
+    margin: 0 auto;
+}
+.container main {
+    margin-top: 50px;
+}
+.container main .box {
+    text-align: center;
+    position: relative;
+    width: 65%;
+    margin: 0 auto 24px;
+}
+
+.container main .box input {
+    width: 100%;
+    line-height: 28px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    padding-left: 26px;
+	background:rgba(0,0,0,0);
+	color: #e6e6e6;
+}
+
+.container main .box .icon_user {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: url("../images/user.png") no-repeat center/cover;
+}
+.container main .box .icon_pw {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: url("../images/pw.png") no-repeat center/cover;
+}
+.container main a{
+    display: block;
+    width: 65%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    background-image: linear-gradient(#fb3f50, #dd010b);
+    color: #fff;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
+/*物流页面*/
+#query header {
+    padding: 0.25rem 0.375rem;
+    border-bottom: 1px dotted #ccc;
+}
+main {
+    padding: 0 0.75rem;
+}
+.basic {
+    padding: 0.8rem 2rem 0;
+}
+.basic .letter {
+    padding: 0.3rem;
+}
+.basic .pl {
+    padding: 1.2rem;
+}
+#query header img {
+    width: 100%;
+}
